@@ -73,30 +73,58 @@
 <p>This project is about building an inspector intercepting and visualizing server-sent event traffic to help the developer to easily see what exact data are received from the server and when. This inspector should be a part of the existing Network panel in Firefox DevTools. This project should ideally build upon the existing WebSocket inspection tab by adding support for server-sent events inspection.</p>
 <h1>Goals</h1>
 <ul>
-<li>View the size of the packets and the time when it was received.</li>
-<li>View the payload of each event.</li>
-<li>Support for sort and filter with respect to parameters like time and size.</li>
-<li>View the event headers, source and content in an organized manner as well as in JSON format.</li>
+<li>
+<h4><span style="font-weight: normal"> View the size of the packets and the time when it was received.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> View the payload of each event.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> Support for sort and filter with respect to parameters like time and size.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> View the event headers, source and content in an organized manner as well as in JSON format.</h4>
+</li>
 </ul>
 <h1>Implementation plan</h1>
 <h2>Client side development plan:</h2>
 <ul>
-<li>To create an interface that supports and visualizes the JSON packets that are being obtained onto the client machine. This will be added upon as an additional tab in the networks panel in the DevTools section.</li>
-<li>A change in the Toolbar section of the codebase to include the UI change to navigate to the tab, and a modification to the base function will be added to incorporate the same.</li>
-<li>An additional CSS file that contains the styles of the above mentioned tab will be appended to src/assets directory.</li>
-<li>A React function that governs the UI and the general framework of the panel is to be developed. Redux reducers will be used to respond to the changes by making the necessary changes to the panel.</li>
+<li>
+<h4><span style="font-weight: normal"> To create an interface that supports and visualizes the JSON packets that are being obtained onto the client machine. This will be added upon as an additional tab in the networks panel in the DevTools section.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> A change in the Toolbar section of the codebase to include the UI change to navigate to the tab, and a modification to the base function will be added to incorporate the same.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> An additional CSS file that contains the styles of the above mentioned tab will be appended to src/assets directory.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> A React function that governs the UI and the general framework of the panel is to be developed. Redux reducers will be used to respond to the changes by making the necessary changes to the panel.</h4>
+</li>
 </ul>
 <h2>Server side development plan:</h2>
 <ul>
-<li>An actor is to be created that will reside on the server (browser). The code will be a part of the  devtools/server/actors/network-monitor directory on Mozilla devtools.</li>
-<li>This actor will be responsible for monitoring the events received and relying the information to the client via JSON objects.</li>
-<li>The actor will ensure the proper formatting of the objects before it is sent to the client. This includes the checks for headers, content, timestamps among others.</li>
+<li>
+<h4><span style="font-weight: normal"> An actor is to be created that will reside on the server (browser). The code will be a part of the  devtools/server/actors/network-monitor directory on Mozilla devtools.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> This actor will be responsible for monitoring the events received and relying the information to the client via JSON objects.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> The actor will ensure the proper formatting of the objects before it is sent to the client. This includes the checks for headers, content, timestamps among others.</h4>
+</li>
 </ul>
 <h1>Architecture plan:</h1>
 <ul>
-<li>The Remote Debugging protocol (RDP) is a Mozilla debugging protocol that allows a debugger to connect to a browser, discover what sorts of things are present to debug or inspect, select JavaScript threads to watch, and observe and modify their execution. This protocol is to be used to communicate between the client and the server.</li>
-<li>All communication between debugger (client) and browser (server) is in the form of JSON objects. This makes it easier to implement, debug and test the components being developed.</li>
-<li>Client is responsible for rendering data it receives from the server and the server is responsible for collecting data and sending it over to the client with necessary information.</li>
+<li>
+<h4><span style="font-weight: normal"> The Remote Debugging protocol (RDP) is a Mozilla debugging protocol that allows a debugger to connect to a browser, discover what sorts of things are present to debug or inspect, select JavaScript threads to watch, and observe and modify their execution. This protocol is to be used to communicate between the client and the server.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> All communication between debugger (client) and browser (server) is in the form of JSON objects. This makes it easier to implement, debug and test the components being developed.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> Client is responsible for rendering data it receives from the server and the server is responsible for collecting data and sending it over to the client with necessary information.</h4>
+</li>
 </ul>
 <h1>Sequence diagram:</h1>
 <p><span
@@ -131,9 +159,15 @@
     </span></p>
 <h1>Testing strategies</h1>
 <ul>
-<li>Static code analysis using SonarQube/SonarCloud.</li>
-<li>Unit testing for the individual functions written in Javascript.</li>
-<li>Integration testing to ensure the rest of the components are working as expected.</li>
+<li>
+<h4><span style="font-weight: normal"> Static code analysis using SonarQube/SonarCloud.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> Unit testing for the individual functions written in Javascript.</h4>
+</li>
+<li>
+<h4><span style="font-weight: normal"> Integration testing to ensure the rest of the components are working as expected.</h4>
+</li>
 </ul>
 <h1>Timeline</h1>
 <h4><code class="language-text">May 4 - May 15</code></h4>
